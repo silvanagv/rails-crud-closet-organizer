@@ -11,6 +11,9 @@
 
     <%= f.text_field :formality_level %>
     <br>
+    <%= f.label :items %>
+    <%= f.collection_select(:item_ids, Item.all, :id, :category) %>
+  <br>
 
     <%= f.submit %>
     <% end %>

@@ -40,7 +40,7 @@ class OutfitsController < ApplicationController
   end
 
   def outfit_params
-    params.require(:outfit).permit(:name, :season, :formality_level)
+    params.require(:outfit).permit(:name, :season, :formality_level, :item_id)
   end
 
 end

@@ -1,0 +1,21 @@
+<h1> All brands </h1>
+
+<% @brands.each do |brand| %>
+<h3>
+  <%= brand.name %>
+  <ul>
+    <h4> Items: </h4>
+      <% brand.items.each do |item| %>
+      <li>
+        Category: <%= item.category %>
+      </li>
+      <li>
+        Color: <%= item.color  %>
+      </li>
+      <li>
+        Fabric: <%= item.fabric %>
+      </li><br>
+      <% end %>
+  </ul>
+</h3>
+<% end %>
