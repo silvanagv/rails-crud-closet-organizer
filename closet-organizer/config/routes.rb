@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :outfits
   resources :users
 
-  # root to: '#show'
+  root 'users#index'
 
 end

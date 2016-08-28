@@ -1,0 +1,15 @@
+<h1>Your Closet</h1>
+
+<ul>
+<% @items.each do |item| %>
+  <li>
+    Category: <%= item.category %>
+  </li>
+  <li>
+    Birthday: <%= item.color  %>
+  </li>
+  <li>
+    Fabric: <%= item.fabric %>
+  </li><br>
+  <%end %>
+</ul>

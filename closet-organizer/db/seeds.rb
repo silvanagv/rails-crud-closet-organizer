@@ -27,3 +27,9 @@ end
   name: Faker::Company.name
   )
 end
+
+10.times do
+  User.create(
+  name: Faker::Name.first_name
+  )
+end
