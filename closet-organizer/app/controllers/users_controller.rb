@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :set_user, only: [:edit, :update, :show]
-before_action :authorize, only: [:home]
+before_action :authorize, except: [:home, :new]
 
   def home
   end
