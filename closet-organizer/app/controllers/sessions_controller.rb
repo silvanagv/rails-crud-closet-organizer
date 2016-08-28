@@ -7,7 +7,7 @@ before_action :authorize, except: [:new, :create]
   end
 
   def create
-      # binding.pry
+      binding.pry
     user = User.find_by(name: user_params[:name])
     if user && user.authenticate(user_params[:password])
       session[:user_id] = user.id

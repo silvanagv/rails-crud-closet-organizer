@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :set_user, only: [:edit, :update, :show]
-before_action :authorize, except: [:home, :new]
+before_action :authorize, except: [:home, :new, :create]
 
   def home
   end
@@ -11,7 +11,7 @@ before_action :authorize, except: [:home, :new]
   end
 
   def create
-    binding.pry
+    # binding.pry
      @user = User.new(user_params)
      if @user.save
        # binding.pry
