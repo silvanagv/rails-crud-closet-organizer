@@ -1,0 +1,16 @@
+<h1> Create an Outfit </h1>
+<%= form_for @outfit do |f| %>
+<%= f.label "Name this outfit:" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label "Season" %>
+
+  <%= f.select :season, options_for_select([["Summer", "summer"], ["Fall", "fall"], ["Winter", "winter"], ["Spring", "spring"]]) %>
+<br>
+  <%= f.label "formality Level" %>
+
+    <%= f.text_field :formality_level %>
+    <br>
+
+    <%= f.submit %>
+    <% end %>
