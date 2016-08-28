@@ -13,7 +13,7 @@ class OutfitsController < ApplicationController
 
   def create
     @outfit = Outfit.new(outfit_params)
-    binding.pry
+    # binding.pry
     if @outfit.save
       redirect_to outfits_path
     else

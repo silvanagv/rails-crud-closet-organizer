@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :users
 
   root 'users#home'
-  resources :sessions, only: [:new, :create, :destroy]
+
+  post '/users', to: "users#create"
 
   get '/login', to: "sessions#new", as: "login"
-  get '/signup', to: "sessions#create", as: "signup"
+  post "/login", to: "sessions#create"
   delete '/logout', to: "sessions#destroy", as: "logout"
 
 end
