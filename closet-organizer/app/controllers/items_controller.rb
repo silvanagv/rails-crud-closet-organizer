@@ -13,7 +13,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def create
     @item = Item.new(item_params)
-    binding.pry
+    # binding.pry
     if @item.save
       redirect_to items_path
     else

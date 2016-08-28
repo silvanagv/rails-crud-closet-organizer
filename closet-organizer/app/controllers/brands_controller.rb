@@ -14,7 +14,7 @@ class BrandsController < ApplicationController
 
     def create
       @brand = Brand.new(brand_params)
-      binding.pry
+      # binding.pry
       if @brand.save
         redirect_to brands_path
       else

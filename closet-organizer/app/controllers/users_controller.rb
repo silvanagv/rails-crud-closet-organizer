@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :set_user, only: [:edit, :update, :show]
-before_action :authorize, only: [:home]
+before_action :authorize, except: [:home, :new]
 
   def home
   end
@@ -11,8 +11,10 @@ before_action :authorize, only: [:home]
   end
 
   def create
+    binding.pry
      @user = User.new(user_params)
      if @user.save
+       # binding.pry
        session[:user_id] = @user.id
        redirect_to user_path(@user)
      else
