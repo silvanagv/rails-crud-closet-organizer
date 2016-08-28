@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :fabric
       t.integer :outfit_id
       t.integer :brand_id
+      t.integer :user_id
 
       t.timestamps
     end
