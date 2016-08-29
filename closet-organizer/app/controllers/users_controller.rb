@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-
 before_action :set_user, only: [:edit, :update, :show]
 before_action :authorize, except: [:home, :new, :create]
 
   def home
+
   end
 
   def show
+
     if params[:id].to_i != session[:user_id]
       redirect_to root_path
     end
@@ -31,13 +32,7 @@ before_action :authorize, except: [:home, :new, :create]
   def index
   end
 
-
-
 private
-
- def set_user
-   @user = User.find(params[:id])
- end
 
  def user_params
    params.require(:user).permit(:name, :password)

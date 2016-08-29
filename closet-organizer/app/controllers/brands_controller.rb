@@ -1,9 +1,10 @@
 class BrandsController < ApplicationController
-  before_action :set_user
+  before_action :find_user
 
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
     def index
-      @brands = Brand.all
+      @brands = @user.brands
+
     end
 
     def new
@@ -14,13 +15,9 @@ class BrandsController < ApplicationController
     end
 
     def create
-      @brand = Brand.new(brand_params)
+      @brand = Brand.find_or_create_by(brand_params)
       # binding.pry
-      if @brand.save
         redirect_to brands_path
-      else
-        render new_brand_path
-      end
     end
 
     def edit
@@ -37,16 +34,12 @@ class BrandsController < ApplicationController
 
     private
 
-    def set_user
-      @user = User.find(session[:user_id])
-    end
-
     def set_brand
       @brand = Brand.find(params[:id])
     end
 
     def brand_params
-      params.require(:brand).permit(:category, :fabric, :color, :brand_id, :outfit_id, :user_id)
+      params.require(:brand).permit(:name)
     end
 
 

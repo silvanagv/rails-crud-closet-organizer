@@ -14,13 +14,13 @@
   <body>
     <nav>
       <div class="menu">
-        <%= link_to 'Home', user_path(current_user) %>
+        <% if logged_in? %>
+        <%= link_to 'Home', user_path(current_user) %> |
         <%= link_to "items", items_path %> |
         <%= link_to "outfits", outfits_path %> |
         <%= link_to "brands", brands_path %>
       </div>
       <div class="login-status">
-        <% if logged_in? %>
          <%= link_to "Log out", logout_path, method: "delete" %>
         <% else %>
           <%= link_to "Log in", login_path %> |
