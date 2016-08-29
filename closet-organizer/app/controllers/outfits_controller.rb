@@ -1,25 +1,25 @@
-
 class OutfitsController < ApplicationController
 before_action :find_user
 
   def index
     # binding.pry
-    @outfits = @user.outfits
+    @outfits = @user.outfits.uniq
   end
 
   def new
     @outfit = Outfit.new
+    @items = @user.items
+    binding.pry
   end
 
   def show
   end
 
   def create
+    @items = @user.items
     @outfit = Outfit.new(outfit_params)
-    # binding.pry
     if @outfit.save
       @user.outfits << @outfit
-      # binding.pry
       redirect_to outfits_path
     else
       render new_outfit_path
@@ -46,7 +46,6 @@ before_action :find_user
 
   def outfit_params
     params.require(:outfit).permit(:name, :season, :formality_level, :item_ids => [])
-
   end
 
 end
