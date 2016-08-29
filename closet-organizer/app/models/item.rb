@@ -12,7 +12,9 @@ class Item < ApplicationRecord
 
 
   def description
-    "#{self.brand.name} #{self.color} #{self.category}"
+    if self.brand
+      "#{self.brand.name} #{self.color} #{self.category}"
+    end
   end
 
 
