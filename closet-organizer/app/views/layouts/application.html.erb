@@ -21,7 +21,7 @@
         <%= link_to "brands", brands_path %>
       </div>
       <div class="login-status">
-         <%= link_to "Log out", logout_path, method: "delete" %>
+         <%= link_to "Log out", logout_path, method: "delete" %> | 
          <%= link_to "Delete Account", user_path(@user), method: "delete" %>
         <% else %>
           <%= link_to "Log in", login_path %> |

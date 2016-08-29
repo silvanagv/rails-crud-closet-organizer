@@ -91,6 +91,7 @@ a:hover:before {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
+    text-transform: uppercase;
 }
 .button5 {
     background-color: white;
@@ -112,4 +113,21 @@ button {
 
 form {
   background-color: $form-background-color;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.image {
+  display: block;
+  clear: both;
+  width: 100%;
+}
+
+.delete {
+  display: inline-block;
+}
+
+input {
+    width: auto;
+    margin: 2%;
 }

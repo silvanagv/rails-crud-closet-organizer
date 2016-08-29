@@ -1,26 +1,19 @@
 <h1>My Closet</h1>
 
-<br><%= link_to "Add Item to My Closet", new_item_path %>
 <ul>
-<% @items.each do |item| %>
-    <h4>Category: <%= item.category %></h4>
-  <h4>
-    Color: <%= item.color  %>
-  </h4>
-  <h4>
-    Fabric: <%= item.fabric %>
-  </h4>
-    <% if item.brand %>
-    <h4>
-      Brand: <%= item.brand.name %>
-  </h4>
+  <br><%= link_to "Add Item to My Closet", new_item_path, :class => 'button button5' %>
 
+<% @items.each do |item| %>
+    <h3> <%= item.category %></h3>   <%= link_to "Delete #{item.category}", item_path(item), method: "delete", :class => 'button button5' %>
+  <h4> Color: <%= item.color  %></h4>
+  <h4>Fabric: <%= item.fabric %>  </h4>
+    <% if item.brand %>
+    <h4>  Brand: <%= item.brand.name %></h4>
     <%end %>
     <% if item.image.url != "/images/original/missing.png"  %>
     <%= link_to image_tag(item.image.url(:medium)) %>
     <% end %>
     <br>
-  <%= link_to "Delete Item", item_path(item), method: "delete" %>
 
   <%end %>
 </ul>
