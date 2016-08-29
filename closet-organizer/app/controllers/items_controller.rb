@@ -14,7 +14,6 @@ before_action :find_user
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     if @item.save
       @user.items << @item
@@ -43,7 +42,7 @@ before_action :find_user
   end
 
   def item_params
-    params.require(:item).permit(:category, :fabric, :color, :brand_id, :outfit_id, :user_id, brand_attributes:[:name])
+    params.require(:item).permit(:image, :category, :fabric, :color, :brand_id, :outfit_id, :user_id, brand_attributes:[:name])
   end
 
 end

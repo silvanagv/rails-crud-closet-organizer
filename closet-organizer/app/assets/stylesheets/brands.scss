@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $background-color: rgb(45, 134, 238);
-$heading-color: rgb(56, 195, 209);
+// $heading-color: rgb(56, 195, 209);
 $heading-font: 'Playfair Display', serif;
 $body-text-color: rgb(7, 3, 48);
 $body-font: 'Karla', serif;
 $accent-color: rgb(116, 133, 170);
 $nav-text-color: rgb(47, 46, 47);
-
+$heading-color: rgb(129, 246, 215);
+$form-background-color: rgb(129, 246, 215);
 
 h1 {
   color: $heading-color;
@@ -85,7 +86,6 @@ a:hover:before {
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 11px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
@@ -101,4 +101,15 @@ a:hover:before {
 .button5:hover {
     background-color: #555555;
     color: white;
+}
+
+button {
+  display: block;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+form {
+  background-color: $form-background-color;
 }

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 before_action :set_user, only: [:edit, :update, :show]
 before_action :authorize, except: [:home, :new, :create]
 
+
   def home
 
   end
@@ -27,6 +28,7 @@ before_action :authorize, except: [:home, :new, :create]
      else
        render :new
      end
+
    end
 
   def index
