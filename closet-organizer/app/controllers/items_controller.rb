@@ -14,6 +14,7 @@ before_action :find_user
   end
 
   def create
+
     @item = Item.new(item_params)
     if @item.save
       @user.items << @item
@@ -32,6 +33,7 @@ before_action :find_user
 
   def destroy
     @item.destroy
+    redirect_to items_path
   end
 
 

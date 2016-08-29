@@ -23,7 +23,9 @@ class ApplicationController < ActionController::Base
 
 
    def set_user
-     @user = User.find(params[:id])
+     if logged_in?
+       @user = User.find(params[:id])
+     end
    end
 
    def find_user

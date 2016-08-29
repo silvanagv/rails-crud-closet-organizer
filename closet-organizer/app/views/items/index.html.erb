@@ -20,6 +20,7 @@
     <%= link_to image_tag(item.image.url(:medium)) %>
     <% end %>
     <br>
+  <%= link_to "Delete Item", item_path(item), method: "delete" %>
 
   <%end %>
 </ul>

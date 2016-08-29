@@ -3,8 +3,7 @@ class BrandsController < ApplicationController
 
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
     def index
-      @brands = @user.brands
-
+      @brands = @user.brands.uniq
     end
 
     def new
