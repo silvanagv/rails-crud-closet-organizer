@@ -1,7 +1,10 @@
+
 class OutfitsController < ApplicationController
+before_action :set_user
 
   def index
-    @outfits = Outfit.all
+    # binding.pry
+    @outfits = @user.outfits
   end
 
   def new
@@ -15,6 +18,8 @@ class OutfitsController < ApplicationController
     @outfit = Outfit.new(outfit_params)
     # binding.pry
     if @outfit.save
+      @user.outfits << @outfit
+      # binding.pry
       redirect_to outfits_path
     else
       render new_outfit_path
@@ -35,12 +40,16 @@ class OutfitsController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(session[:user_id])
+  end
+
   def set_outfit
     @outfit = Outfit.find(params[:id])
   end
 
   def outfit_params
-    params.require(:outfit).permit(:name, :season, :formality_level, :item_id)
+    params.require(:outfit).permit(:name, :season, :formality_level, :item_ids => [])
   end
 
 end

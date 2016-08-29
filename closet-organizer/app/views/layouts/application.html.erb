@@ -3,12 +3,30 @@
   <head>
     <title>ClosetOrganizer</title>
     <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav>
+      <div class="menu">
+        <%= link_to "items", items_path %> |
+        <%= link_to "outfits", outfits_path %> |
+        <%= link_to "brands", brands_path %>
+      </div>
+      <div class="login-status">
+        <% if logged_in? %>
+          <%= link_to "Log out", logout_path, method: "delete" %>
+        <% else %>
+          <%= link_to "Log in", login_path %> |
+          <%= link_to "Sign up", new_user_path %>
+        <% end %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

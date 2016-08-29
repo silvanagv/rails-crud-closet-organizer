@@ -1,15 +1,19 @@
-<h1>Your Closet</h1>
-<%= link_to "See my outfits", outfits_path %>
+<h1>My Closet</h1>
+<br><%= link_to "Add Item to My Closet", new_item_path %>
 <ul>
 <% @items.each do |item| %>
-  <li>
-    Category: <%= item.category %>
-  </li>
-  <li>
+    <h4>Category: <%= item.category %></h4>
+  <h4>
     Color: <%= item.color  %>
-  </li>
-  <li>
+  </h4>
+  <h4>
     Fabric: <%= item.fabric %>
-  </li><br>
+  </h4>
+    <% if item.brand %>
+    <h4>
+      Brand: <%= item.brand.name %>
+  </h4>
+    <%end %>
+    <br>
   <%end %>
 </ul>

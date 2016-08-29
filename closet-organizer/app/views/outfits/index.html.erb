@@ -1,19 +1,12 @@
 <h1>My Outfits</h1>
 
-<%= link_to "Make a new outfit", new_outfit_path %>
-
 <ul>
 <% @outfits.each do |outfit| %>
-  <li>
-    Name: <%= outfit.name %>
-  </li>
-  <li>
-    Season: <%= outfit.season  %>
-  </li>
-  <li>
-    Formality Level: <%= outfit.formality_level %>
-  </li><br>
+  <h3>
+    <%= outfit.name %> | <%= outfit.season %> | Formality Level: <%= outfit.formality_level %>
+  </h3>
 
+<p>Items in this Outfit:</p>
   <ul><% outfit.items.each do |item| %>
     <li>
       Category: <%= item.category %>
@@ -23,12 +16,19 @@
     </li>
     <li>
       Fabric: <%= item.fabric %>
-    </li><br>
+    </li>
+    <% if item.brand %>
     <li>
+
       Brand: <%= item.brand.name %>
-    </li><br>
+    </li>
+      <% end %>
+      <br>
     <%end %></ul>
 
   </li>
   <%end %>
 </ul>
+
+
+<%= link_to "Make a new outfit", new_outfit_path %>

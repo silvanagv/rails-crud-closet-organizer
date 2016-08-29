@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 before_action :set_item, only: [:show, :edit, :update, :destroy]
+before_action :set_user
+
   def index
     @items = Item.all
   end
@@ -12,8 +14,8 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to items_path
     else
@@ -35,12 +37,16 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   private
 
+  def set_user
+    @user = User.find(session[:user_id])
+  end
+
   def set_item
     @item = Item.find(params[:id])
   end
 
   def item_params
-    params.require(:item).permit(:category, :fabric, :color, :brand_id, :outfit_id, :user_id)
+    params.require(:item).permit(:category, :fabric, :color, :brand_id, :outfit_id, :user_id, brand_attributes:[:name])
   end
 
 end
