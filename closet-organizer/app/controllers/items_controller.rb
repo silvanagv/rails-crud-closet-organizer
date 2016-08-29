@@ -16,6 +16,8 @@ before_action :set_user
   def create
     @item = Item.new(item_params)
     if @item.save
+      binding.pry
+      @item.brand << @item
       @user.items << @item
       redirect_to items_path
     else
