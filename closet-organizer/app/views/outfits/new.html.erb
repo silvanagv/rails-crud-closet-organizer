@@ -12,7 +12,7 @@
     <%= f.text_field :formality_level %>
     <br>
     <%= f.label :items %>
-    <%= f.collection_select(:item_ids, Item.all, :id, :category) %>
+    <%= f.collection_check_boxes(:item_ids, Item.all, :id, :description) %>
   <br>
 
     <%= f.submit %>

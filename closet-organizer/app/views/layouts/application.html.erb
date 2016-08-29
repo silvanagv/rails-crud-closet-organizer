@@ -6,7 +6,7 @@
 <body>
     <h1> ♥ Closet Organizer ♥ </h1>
     <% if logged_in? %>
-      <%= link_to 'Home', user_path(@user) %>
+      <%= link_to 'Home', user_path(current_user) %>
     <%end %>
   <%= yield %>
 </body>

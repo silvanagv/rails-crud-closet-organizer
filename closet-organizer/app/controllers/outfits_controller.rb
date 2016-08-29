@@ -4,6 +4,7 @@ before_action :set_user
   def index
     # binding.pry
     @outfits = @user.outfits
+    @items = @user.items
   end
 
   def new

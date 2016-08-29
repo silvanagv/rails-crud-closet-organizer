@@ -7,7 +7,9 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? }
 
-
+  def description
+    "#{self.brand.name} #{self.color} #{self.category}"
+  end
 
 
 end

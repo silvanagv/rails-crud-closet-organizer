@@ -3,7 +3,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
 before_action :set_user
 
   def index
-    @items = Item.all
+    @items = @user.items
   end
 
   def new
@@ -14,10 +14,9 @@ before_action :set_user
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
-    binding.pry
     if @item.save
+      @user.items << @item
       redirect_to items_path
     else
       render new_item_path
