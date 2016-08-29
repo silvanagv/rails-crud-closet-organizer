@@ -14,6 +14,7 @@ before_action :set_user
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       binding.pry

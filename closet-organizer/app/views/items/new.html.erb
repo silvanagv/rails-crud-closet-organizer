@@ -1,5 +1,6 @@
 <h1> Add an item </h1>
 <%= form_for @item do |f| %>
+
 <%= f.label "Category:" %>
   <%= f.text_field :category %>
   <br>
@@ -20,8 +21,7 @@
   <% end %>
 
 
-
   <br>
 
-    <%= f.submit %>
+    <%= f.submit 'CREATE ITEM', :class => 'button button5'%>
     <% end %>

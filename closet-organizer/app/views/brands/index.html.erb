@@ -3,8 +3,10 @@
 <% @brands.each do |brand| %>
 <h3>
   <%= brand.name %>
+</h3>
+
   <ul>
-    <h4> Items: </h4>
+    <p> Items: </p>
       <% brand.items.each do |item| %>
       <li>
         Category: <%= item.category %>
@@ -17,5 +19,4 @@
       </li><br>
       <% end %>
   </ul>
-</h3>
 <% end %>

@@ -1,3 +1,104 @@
 // Place all the styles related to the Brands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$background-color: rgb(45, 134, 238);
+$heading-color: rgb(56, 195, 209);
+$heading-font: 'Playfair Display', serif;
+$body-text-color: rgb(7, 3, 48);
+$body-font: 'Karla', serif;
+$accent-color: rgb(116, 133, 170);
+$nav-text-color: rgb(47, 46, 47);
+
+
+h1 {
+  color: $heading-color;
+  font-family: $heading-font;
+  text-align: center;
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+h3 {
+  color: $accent-color;
+  text-transform: uppercase;
+  font-size: 0.95em;
+}
+
+body {
+  color: $body-text-color;
+  font-family: $body-font;
+  width: 80%;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+    a {
+      position: relative;
+      color: $nav-text-color;
+      text-decoration: none;  }
+
+  a:hover {
+  color: $nav-text-color;
+}
+  width: 100%;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  .login-status {
+    text-align: right;
+    float: right;
+  }
+  .menu {
+    text-align: left;
+    float: left;
+  }
+  a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: $nav-text-color;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button5 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.button5:hover {
+    background-color: #555555;
+    color: white;
+}

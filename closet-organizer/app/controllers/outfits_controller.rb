@@ -1,10 +1,10 @@
+
 class OutfitsController < ApplicationController
 before_action :set_user
 
   def index
     # binding.pry
     @outfits = @user.outfits
-    @items = @user.items
   end
 
   def new
@@ -49,7 +49,8 @@ before_action :set_user
   end
 
   def outfit_params
-    params.require(:outfit).permit(:name, :season, :formality_level, :item_ids)
+    params.require(:outfit).permit(:name, :season, :formality_level, :item_ids => [])
+
   end
 
 end

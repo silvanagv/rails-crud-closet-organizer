@@ -40,7 +40,7 @@ class BrandsController < ApplicationController
     def set_user
       @user = User.find(session[:user_id])
     end
-    
+
     def set_brand
       @brand = Brand.find(params[:id])
     end
