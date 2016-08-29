@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :logged_in?, :current_user
+  helper_method :logged_in?, :current_user, :set_user, :find_user
   before_action :authorize, except: [:home]
 
 
@@ -20,6 +20,15 @@ class ApplicationController < ActionController::Base
   def show
   end
 
+
+
+   def set_user
+     @user = User.find(params[:id])
+   end
+
+   def find_user
+     @user = User.find(session[:user_id])
+   end
 
 def authorize
    redirect_to root_path unless logged_in?

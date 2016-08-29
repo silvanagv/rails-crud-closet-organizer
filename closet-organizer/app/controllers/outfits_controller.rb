@@ -1,6 +1,6 @@
 
 class OutfitsController < ApplicationController
-before_action :set_user
+before_action :find_user
 
   def index
     # binding.pry
@@ -39,10 +39,6 @@ before_action :set_user
 
 
   private
-
-  def set_user
-    @user = User.find(session[:user_id])
-  end
 
   def set_outfit
     @outfit = Outfit.find(params[:id])

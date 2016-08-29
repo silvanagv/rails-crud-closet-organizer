@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 before_action :set_item, only: [:show, :edit, :update, :destroy]
-before_action :set_user
+before_action :find_user
 
   def index
     @items = @user.items
@@ -37,10 +37,6 @@ before_action :set_user
 
 
   private
-
-  def set_user
-    @user = User.find(session[:user_id])
-  end
 
   def set_item
     @item = Item.find(params[:id])
