@@ -3,12 +3,13 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :user, optional: true
 
-  accepts_nested_attributes_for :brand
 
   accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? }
 
 
-  CATEGORIES = ['shorts', 'skirt', 'jeans', 'hat', 'jumper', 'cardigan']
+  def description
+    "#{self.brand.name} #{self.color} #{self.category}"
+  end
 
 
 end

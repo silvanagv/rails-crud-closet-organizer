@@ -13,7 +13,7 @@
     <%= f.text_field :formality_level %>
     <br>
     <%= f.label :items %>
-    <%= f.collection_select(:item_ids, Item.all, :id, :category) %>
+    <%= f.collection_check_boxes(:item_ids, Item.all, :id, :description) %>
   <br>
 <%= f.collection_check_boxes :item_ids, Item.all, :id, :category do |b|
 b.label(class: "my-#{ b.object.class.name.parameterize }", 'data-value': b.value) { b.check_box + b.text }

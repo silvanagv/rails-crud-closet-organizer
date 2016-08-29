@@ -50,6 +50,7 @@ before_action :set_user
 
   def outfit_params
     params.require(:outfit).permit(:name, :season, :formality_level, :item_ids => [])
+
   end
 
 end

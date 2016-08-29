@@ -6,6 +6,12 @@ before_action :authorize, except: [:home, :new, :create]
   def home
   end
 
+  def show
+    if params[:id].to_i != session[:user_id]
+      redirect_to root_path
+    end
+  end
+
   def new
     @user = User.new
   end
