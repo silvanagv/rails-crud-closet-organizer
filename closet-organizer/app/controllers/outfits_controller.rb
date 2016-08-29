@@ -9,7 +9,7 @@ before_action :find_user
   def new
     @outfit = Outfit.new
     @items = @user.items
-    binding.pry
+    # binding.pry
   end
 
   def show

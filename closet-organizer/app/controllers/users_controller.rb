@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:edit, :update, :show]
+before_action :set_user, only: [:edit, :update, :show, :destroy]
 before_action :authorize, except: [:home, :new, :create]
 
   def home
-
   end
 
   def show
@@ -29,6 +28,13 @@ before_action :authorize, except: [:home, :new, :create]
    end
 
   def index
+  end
+
+  def destroy
+    binding.pry
+    @user.destroy
+    reset_session
+    redirect_to root_path
   end
 
 private
