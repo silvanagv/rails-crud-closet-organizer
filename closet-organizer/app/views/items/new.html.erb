@@ -1,19 +1,26 @@
 <h1> Add an item </h1>
 <%= form_for @item do |f| %>
-<%= f.label "Category" %>
+<%= f.label "Category:" %>
   <%= f.text_field :category %>
   <br>
-  <%= f.label "Fabric" %>
+  <%= f.label "Fabric:" %>
 
   <%= f.text_field :fabric %>
   <br>
-  <%= f.label "Color" %>
+  <%= f.label "Color:" %>
 
-    <%= f.text_field :color %>
-    <br>
-    <%= f.label "Brand" %>
+  <%= f.text_field :color %>
+  <br>
+  <%= f.label "Brand:" %>
 
-    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+  <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select from Brands' %>
+
+  <%= f.fields_for :brand, Brand.new do |brand_fields| %>
+  <%= brand_fields.text_field :name, placeholder: 'New Brand' %>
+  <% end %>
+
+
+
   <br>
 
     <%= f.submit %>

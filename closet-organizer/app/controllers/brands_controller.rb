@@ -1,4 +1,5 @@
 class BrandsController < ApplicationController
+  before_action :set_user
 
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
     def index
@@ -36,6 +37,10 @@ class BrandsController < ApplicationController
 
     private
 
+    def set_user
+      @user = User.find(session[:user_id])
+    end
+    
     def set_brand
       @brand = Brand.find(params[:id])
     end

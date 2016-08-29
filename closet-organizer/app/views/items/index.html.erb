@@ -1,5 +1,6 @@
-<h1>Your Closet</h1>
-<%= link_to "See my outfits", outfits_path %>
+<h1>My Closet</h1>
+<%= link_to "See My Outfits", outfits_path %><br>
+<br><%= link_to "Add Item to My Closet", new_item_path %>
 <ul>
 <% @items.each do |item| %>
   <li>
@@ -10,6 +11,10 @@
   </li>
   <li>
     Fabric: <%= item.fabric %>
+  <li>
+    <% if item.brand %>
+      Brand: <%= item.brand.name %>
   </li><br>
+    <%end %>
   <%end %>
 </ul>
